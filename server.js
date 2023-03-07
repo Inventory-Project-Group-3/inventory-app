@@ -17,4 +17,3 @@ const init = async () => {
 
 init();
 
-console.log('Hello Adrian');
