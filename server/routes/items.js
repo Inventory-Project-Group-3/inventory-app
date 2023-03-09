@@ -4,7 +4,7 @@ const itemRouter = express.Router();
 const { Item } = require("../models/index");
 const { check, validationResult} = require("express-validator")
 
-// GET /items/ (ALL)
+// Ahmed's Code - GET /items/ (ALL)
 itemRouter.get("/", async (req, res, next) => {
   try {
     const items = await Item.findAll();
@@ -14,7 +14,7 @@ itemRouter.get("/", async (req, res, next) => {
   }
 });
 
-// GET /items/id (ONE)
+// Ahmed's Code - GET /items/id (ONE)
 itemRouter.get("/id/:itemId", async (req, res, next) => {
   try {
     const myItem = await Item.findByPk(req.params.itemId);
@@ -31,7 +31,7 @@ itemRouter.get("/id/:itemId", async (req, res, next) => {
   }
 });
 
-//POST /items/
+// Ahmed's Code - POST /items/
 itemRouter.post("/", [
   check("name").not().isEmpty().trim(),
   check("description").not().isEmpty().trim(),
@@ -59,7 +59,7 @@ itemRouter.post("/", [
       }
 })
 
-//DELETE items/id/
+// Ahmed's Code - DELETE items/id/
 itemRouter.delete("/id/:id", async (req, res) => {
   try {
       const chosenItem = await Item.findByPk(req.params.id);
@@ -76,7 +76,7 @@ itemRouter.delete("/id/:id", async (req, res) => {
 })
 
 
-//PUT items/id/
+// Ahmed's Code - PUT items/id/
 itemRouter.put("/id/:id", [
   check("name").not().isEmpty().trim(),
   check("description").not().isEmpty().trim(),
