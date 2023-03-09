@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import apiURL from "../api";
 
-export function AddItemForm({setIsAddingItem, setItems, items}) {
+export function AddItemForm({setCurrentStatus, setItems, items}) {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -10,7 +10,6 @@ export function AddItemForm({setIsAddingItem, setItems, items}) {
     const [image, setImage] = useState("");
 
     const submitAddItemForm = async (e) => {
-        console.log('submit button works');
         e.preventDefault();
 
         try {
@@ -41,7 +40,8 @@ export function AddItemForm({setIsAddingItem, setItems, items}) {
         setCategory("");
         setImage("");
         
-        setIsAddingItem(false)
+        setCurrentStatus('view');
+
         } catch(error) {
             console.error(error)
         }
@@ -56,12 +56,12 @@ export function AddItemForm({setIsAddingItem, setItems, items}) {
         <input type="text" placeholder="Description" aria-label="description" value={description} onChange={(e) => setDescription(e.target.value)} />
 
         <input type="text" placeholder="Price" aria-label="price" value={price} onChange={(e) => setPrice(e.target.value)} />
-
+        
         <input type="text" placeholder="Category" aria-label="category" value={category} onChange={(e) => setCategory(e.target.value)} /> 
 
         <input type="text" placeholder="Image" aria-label="image" value={image} onChange={(e) => setImage(e.target.value)} />
 
-        <button onClick={() => setIsAddingItem(false)}>Back to Items List</button>
+        <button onClick={() => setCurrentStatus('view')}>Back to Items List</button>
 
         <button type="submit">Create an Item</button>
 
