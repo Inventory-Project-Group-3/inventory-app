@@ -20,8 +20,6 @@ export function deleteItem ({ id, setItems, items }) {
         console.error(error);
       }
     };
-  
-    return (
+    
       <button onClick={deleteItem}>Delete</button>
-    );
   };

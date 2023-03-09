@@ -4,17 +4,12 @@ import { ItemsList } from './ItemsList';
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
 import { AddItemForm } from './AddItemForm';
-//Import update/delet (adrian)
-import { updateItemForm } from './UpdateItemForm';
-import { deleteItem } from './DeleteItem';
 
 export const App = () => {
 
 //Add Item
 	const [items, setItems] = useState([]);
 	const [isAddingItem, setIsAddingItem] = useState(false);
-	const [isUpdatingItem, setIsUpdatingItem] = useState(); //adrian
-	const [isDeletingItem, setIsDeletingItem] = useState(false); //adrian
 
 	async function fetchItems(){
 		try {
@@ -31,25 +26,7 @@ export const App = () => {
 		fetchItems();
 	}, []);
 
-//Update Item
-	async function updateItems(){
-		try {
-			
-		} catch (err) {
-			console.log('Oh no an error!', err)
-		}
-	}
 
-//Delete Item (adrian)
-	async function deleteItem(){
-		try {
-			
-		} catch (err) {
-			console.log('Oh no an error!', err)
-		}
-	}
-
-//
 	return (
 		<main>	
       		<h1>Sauce Store</h1>
