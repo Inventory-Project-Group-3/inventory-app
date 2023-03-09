@@ -7,6 +7,7 @@ import apiURL from '../api';
 
 export const App = () => {
 
+//Add Item
 	const [items, setItems] = useState([]);
 
 	const [currentStatus, setCurrentStatus] = useState('view') //or 'add', 'update', 'delete'
@@ -64,6 +65,7 @@ export const App = () => {
 		break;
 
 	}
+  
 	return (
 		<main>	
       		<h1>Sauce Store</h1>
