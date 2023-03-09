@@ -82,7 +82,8 @@ itemRouter.put("/id/:id", [
   check("description").not().isEmpty().trim(),
   check("price").not().isEmpty(),
   check("category").not().isEmpty().trim(),
-  check("image").not().isEmpty().trim()], async (req, res) => {
+  check("image").not().isEmpty().trim()
+], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
       res.status(500).json({ error: errors.array()});
