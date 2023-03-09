@@ -3,10 +3,12 @@ import { ItemsList } from './ItemsList';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
+import { AddItemForm } from './AddItemForm';
 
 export const App = () => {
 
 	const [items, setItems] = useState([]);
+	const [isAddingItem, setIsAddingItem] = useState(false);
 
 	async function fetchItems(){
 		try {
@@ -25,9 +27,13 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>Sauce Store</h1>
+      		<h1>Sauce Store</h1>
 			<h2>All things 🔥</h2>
-			<ItemsList items={items} />
+			{!isAddingItem ? (<>
+				<ItemsList items={items} setIsAddingItem={setIsAddingItem} />
+				<button onClick={() => setIsAddingItem(true)}>Add Item</button>
+				</>)
+			: (<AddItemForm setIsAddingItem={setIsAddingItem} items={items} setItems={setItems}/>)}
 		</main>
 	)
 }
