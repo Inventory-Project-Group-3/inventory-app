@@ -47,7 +47,7 @@ nav ul li + li {
 }
 
 /* Header styles */
-header {
+header, footer {
   height: 10vh;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,6 @@ header p {
 /* Section styles */
 section {
   padding: 2rem;
-  margin: 2rem 0;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -86,20 +85,6 @@ section p {
   margin-bottom: 1rem;
 }
 
-section button {
-  background-color: #333;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-section button:hover {
-  background-color: #555;
-}
-
 /* Form styles */
 input, button {
   display: block;
@@ -113,6 +98,8 @@ input, button {
 button {
   color: #fff;
   background-color: darkcyan;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
 }
 button:hover {
   background-color: rgb(0, 98, 98);
@@ -123,18 +110,10 @@ img {
 }
 /* Footer styles */
 footer {
-  height: 10vh;
-  background-color: darkcyan;
-  color: #fff;
   padding: 1rem;
-  text-align: center;
-  margin-top: auto;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
+  color: #fff;
 }
-
 
 footer p {
   margin-bottom: 0.5rem;
