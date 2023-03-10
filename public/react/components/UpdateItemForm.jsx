@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import apiURL from "../api";
 
 //Adrian's update item code
-export function pdateItemForm ({ item, setIsUpdatingItem, setItems, items }) {
+export function UpdateItemForm ({ setCurrentStatus, setItems, items }) {
 
-    const [name, setName] = useState(item.name);
-    const [description, setDescription] = useState(item.description);
-    const [price, setPrice] = useState(item.price);
-    const [category, setCategory] = useState(item.category);
-    const [image, setImage] = useState(item.image);
+    const [id, setId] = useState('');//not saved into the db
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
+    const [image, setImage] = useState('');
 
 const submitUpdateItemForm = async (e) => {
     e.preventDefault();
 
     try {
-        const response = await fetch(`${apiURL}/items/${item.id}`, {
+        const response = await fetch(`${apiURL}/items/id/${id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -25,16 +26,21 @@ const submitUpdateItemForm = async (e) => {
               price: price,
               category: category,
               image: image,
-            }),
+            })
           });
     
           const updatedItem = await response.json();
     
-          setItems(
-            items.map((item) => (item.id === updatedItem.id ? updatedItem : item))
-          );
+          setItems([...items, updatedItem]);
+
+          setId("");
+          setName("");
+          setDescription("");
+          setPrice("");
+          setCategory("");
+          setImage("");
     
-          setIsUpdatingItem(false);
+          setCurrentStatus('view');
         
     } catch (error) {
         console.log(error);
@@ -45,6 +51,13 @@ return (
     <>
       <h2>Update Item</h2>
       <form onSubmit={submitUpdateItemForm}>
+      <input
+          type="text"
+          placeholder="ID"
+          aria-label="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
         <input
           type="text"
           placeholder="Name"
@@ -85,9 +98,9 @@ return (
           onChange={(e) => setImage(e.target.value)}
         />
 
-        <button onClick={() => setIsEditingItem(false)}>Back to Items List</button>
+        <button onClick={() => setCurrentStatus('view')}>Back to Items List</button>
 
-        <button type="submit">Update and Item</button>
+        <button type="submit">Update Item</button>
       </form>
     </>
   );

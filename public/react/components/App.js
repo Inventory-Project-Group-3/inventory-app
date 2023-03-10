@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ItemsList } from './ItemsList';
 import { AddItemForm } from './AddItemForm';
+import { UpdateItemForm } from './UpdateItemForm';
+import { DeleteItemForm } from './DeleteItemForm'; 
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -43,7 +45,7 @@ export const App = () => {
 		case 'add': 
 			contentToDisplay = (
 				<>
-					<AddItemForm setCurrentStatus={setCurrentStatus} items={items} setItems={setItems}/>
+					<AddItemForm setCurrentStatus={setCurrentStatus} items={items} setItems={setItems} />
 				</>
 			);
 		break;
@@ -51,7 +53,7 @@ export const App = () => {
 		case 'update': 
 			contentToDisplay = (
 				<>
-					<UpdateItemForm setCurrentStatus={setCurrentStatus} items={items} setItems={setItems}/>{/*Adrian, please add all the props you need for 'UpdateItemForm' in its tags*/}
+					<UpdateItemForm setCurrentStatus={setCurrentStatus} items={items} setItems={setItems} />
 				</>
 			);
 		break;
