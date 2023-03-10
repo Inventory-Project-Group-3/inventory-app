@@ -33,7 +33,7 @@ itemRouter.get("/id/:itemId", async (req, res, next) => {
 
 // Ahmed's Code - POST /items/
 itemRouter.post("/", [
-  check("name").not().isEmpty().trim(),
+  check("title").not().isEmpty().trim(),
   check("description").not().isEmpty().trim(),
   check("price").not().isEmpty(),
   check("category").not().isEmpty().trim(),
@@ -45,7 +45,7 @@ itemRouter.post("/", [
       } else {
           try {
               await Item.create({
-                name: req.body.name,
+                title: req.body.title,
                 description: req.body.description,
                 price: req.body.price,
                 category: req.body.category,
@@ -78,7 +78,7 @@ itemRouter.delete("/id/:id", async (req, res) => {
 
 // Ahmed's Code - PUT items/id/
 itemRouter.put("/id/:id", [
-  check("name").not().isEmpty().trim(),
+  check("title").not().isEmpty().trim(),
   check("description").not().isEmpty().trim(),
   check("price").not().isEmpty(),
   check("category").not().isEmpty().trim(),
@@ -94,7 +94,7 @@ itemRouter.put("/id/:id", [
               throw new Error("No Item was found with this id")
           } else {
               await chosenItem.update({
-                name: req.body.name,
+                title: req.body.title,
                 description: req.body.description,
                 price: req.body.price,
                 category: req.body.category,

@@ -5,10 +5,10 @@ export const ItemsList = ({ items }) => {
     <div>
       {items.map((item) => (
         <div key={item.id}>
-          <h3>{item.name}</h3>
+          <h3>{item.title}</h3>
           <p>{item.description}</p>
           <p>Price: ${item.price}</p>
-          <img src={item.image} alt={item.name} />
+          <img src={item.image} alt={item.title} />
         </div>
       ))}
     </div>

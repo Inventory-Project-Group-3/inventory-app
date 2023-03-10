@@ -8,7 +8,7 @@ const Sauce = sequelize.define("sauces", {
 
 //Adrian's code - Sequelize Model for Item
 const Item = sequelize.define("items", {
-  name: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false
   },

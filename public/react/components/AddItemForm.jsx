@@ -3,7 +3,7 @@ import apiURL from "../api";
 
 export function AddItemForm({setCurrentStatus, setItems, items}) {
 
-    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
@@ -20,7 +20,7 @@ export function AddItemForm({setCurrentStatus, setItems, items}) {
         },
         body: JSON.stringify(
             {
-                name: name, 
+                title: title, 
                 description: description,
                 price: price,
                 category: category,
@@ -34,7 +34,7 @@ export function AddItemForm({setCurrentStatus, setItems, items}) {
 
         setItems([...items, createdItem])
 
-        setName("");
+        setTitle("");
         setDescription("");
         setPrice("");
         setCategory("");
@@ -51,7 +51,7 @@ export function AddItemForm({setCurrentStatus, setItems, items}) {
         <h2>Add an Item</h2>
         <form onSubmit={submitAddItemForm}> 
 
-        <input type="text" placeholder="Name" aria-label="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input type="text" placeholder="Title" aria-label="title" value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <input type="text" placeholder="Description" aria-label="description" value={description} onChange={(e) => setDescription(e.target.value)} />
 
