@@ -5,7 +5,7 @@ import apiURL from "../api";
 export function UpdateItemForm ({ setCurrentStatus, setItems, items }) {
 
     const [id, setId] = useState('');//not saved into the db
-    const [name, setName] = useState('');
+    const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
@@ -21,7 +21,7 @@ const submitUpdateItemForm = async (e) => {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              name: name,
+              title: title,
               description: description,
               price: price,
               category: category,
@@ -34,7 +34,7 @@ const submitUpdateItemForm = async (e) => {
           setItems([...items, updatedItem]);
 
           setId("");
-          setName("");
+          setTitle("");
           setDescription("");
           setPrice("");
           setCategory("");
@@ -60,10 +60,10 @@ return (
         />
         <input
           type="text"
-          placeholder="Name"
-          aria-label="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          placeholder="Title"
+          aria-label="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <input

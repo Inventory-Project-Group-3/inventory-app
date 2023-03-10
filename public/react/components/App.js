@@ -12,7 +12,7 @@ export const App = () => {
 //Add Item
 	const [items, setItems] = useState([]);
 
-	const [currentStatus, setCurrentStatus] = useState('view') //or 'add', 'update', 'delete'
+	const [currentStatus, setCurrentStatus] = useState('view') //or 'add', 'update', 'delete' 
 
 	async function fetchItems(){
 		try {

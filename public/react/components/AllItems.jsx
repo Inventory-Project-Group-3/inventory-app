@@ -14,11 +14,11 @@ function AllItems() {
     <div>
       {items.map(item => (
         <div key={item.id}>
-          <h3>{item.name}</h3>
+          <h3>{item.title}</h3>
           <p>{item.description}</p>
           <p>{item.price}</p>
           <p>{item.category}</p>
-          <img src={item.image} alt={item.name} />
+          <img src={item.image} alt={item.title} />
         </div>
       ))}
     </div>
